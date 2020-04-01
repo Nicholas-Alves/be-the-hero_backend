@@ -2,10 +2,15 @@ const req = require('supertest');
 const app = require('../../src/app');
 const connection = require('../../src/database/connection');
 
-describe('ONG', () => {    
-    afterEach(async () => {
-        await connection.migrate.rollback();
+describe('ONG', () => {
+
+    beforeAll(async () => {
         await connection.migrate.latest();
+    });
+
+    afterEach(async () => {
+        await connection('incident').del();
+        await connection('ong').del();        
     });
 
     afterAll(async () => {

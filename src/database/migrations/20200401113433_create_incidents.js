@@ -7,7 +7,7 @@ exports.up = function(knex) {
         //Attributes
         table.string('title').notNullable();
         table.string('description').notNullable();
-        table.decimal('value').notNullable();
+        table.specificType('value', 'money').notNullable();
         
         //Foreign Key
         table.string('ong_id').notNullable();

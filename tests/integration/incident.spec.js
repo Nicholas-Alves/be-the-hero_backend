@@ -3,9 +3,14 @@ const app = require('../../src/app');
 const connection = require('../../src/database/connection');
 
 describe('Incident', () => {    
-    afterEach(async () => {
-        await connection.migrate.rollback();
+
+    beforeAll(async () => {
         await connection.migrate.latest();
+    });
+
+    afterEach(async () => {
+        await connection('incident').del();
+        await connection('ong').del();        
     });
 
     afterAll(async () => {

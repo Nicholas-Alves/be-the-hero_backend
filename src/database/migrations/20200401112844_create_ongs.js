@@ -2,7 +2,7 @@
 exports.up = function(knex) {
     return knex.schema.createTable('ong', function(table){
         //Primary Key
-        table.string('id').primary();
+        table.string('id', 8).primary();
     
         //Attributes
         table.string('name').notNullable();
