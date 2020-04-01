@@ -4,7 +4,8 @@ const connection = require('../../src/database/connection');
 
 describe('Incident', () => {    
     afterEach(async () => {
-        await connection.migrate.up('20200331200825_delete_incidents.js');
+        await connection.migrate.rollback();
+        await connection.migrate.latest();
     });
 
     afterAll(async () => {

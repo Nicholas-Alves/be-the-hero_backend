@@ -4,7 +4,8 @@ const connection = require('../../src/database/connection');
 
 describe('ONG', () => {    
     afterEach(async () => {
-        await connection.migrate.up('20200331200423_delete_ongs.js');
+        await connection.migrate.rollback();
+        await connection.migrate.latest();
     });
 
     afterAll(async () => {
