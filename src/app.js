@@ -5,8 +5,6 @@ const { errors } = require('celebrate');
 
 const app = express();
 
-// app.use(cors());
-
 app.use(cors({
     origin: process.env.WEB_BTH,
 }));
