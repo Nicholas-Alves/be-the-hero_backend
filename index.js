@@ -1,9 +1,3 @@
-const express = require('express');
-
-const app = express();
-
-app.get('/', (req, res) => {
-    res.send('O PROBLEMA ERA O START');
-});
+const app = require('./src/app');
 
 app.listen(process.env.PORT || 3333);
