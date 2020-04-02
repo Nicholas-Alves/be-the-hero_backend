@@ -4,8 +4,8 @@
   "description": "Backend da aplicação Be The Hero da Semana Omnistack 11.0 (Rocketseat)",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "build": "node index.js",
+    "dev": "nodemon index.js",
+    "start": "node index.js",
     "test": "cross-env NODE_ENV=test jest"
   },
   "keywords": [],
@@ -24,9 +24,5 @@
     "jest": "^25.2.3",
     "nodemon": "^2.0.2",
     "supertest": "^4.0.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://git.heroku.com/apricot-sundae-22343.git"
   }
 }
