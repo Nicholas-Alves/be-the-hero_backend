@@ -9,10 +9,14 @@ module.exports = {
       password: process.env.DB_PASS,
       host: process.env.DB_HOST,
       port: process.env.DB_PORT,
-      database: process.env.DB_DEV
+      database: process.env.DB_DEV,
+      acquireConnectionTimeout: 10000
     },    
     migrations :{
       directory: './src/database/migrations'
+    },
+    pool: {
+      max: 20
     },
     useNullAsDefault: true    
   },
@@ -24,10 +28,14 @@ module.exports = {
       password: process.env.DB_PASS,
       host: process.env.DB_HOST,
       port: process.env.DB_PORT,
-      database: process.env.DB_TEST
+      database: process.env.DB_TEST,
+      acquireConnectionTimeout: 10000
     },    
     migrations :{
       directory: './src/database/migrations'
+    },
+    pool: {
+      max: 20
     },
     useNullAsDefault: true    
   },
@@ -39,8 +47,7 @@ module.exports = {
       directory: './src/database/migrations'
     },
     pool: {
-      min: 2,
-      max: 10
+      max: 20
     }
   }
 

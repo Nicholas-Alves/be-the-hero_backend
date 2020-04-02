@@ -5,9 +5,15 @@ module.exports = async function generateUniqueId(connection){
     
     while(id.length != 0){
         generatedId = crypto.randomBytes(4).toString('HEX');
-        id = await connection('ong').select('id').where('id', generatedId);        
+
+        try {
+            await connection.transaction(async trx => {
+                id = await trx('ong').select('id').where('id', generatedId);
+            });
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     return generatedId;
-    // return crypto.randomBytes(4).toString('HEX');
 }
