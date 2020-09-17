@@ -6,18 +6,18 @@ require('dotenv/config');
 
 const app = express();
 
-const whitelist = [process.env.WEB_BTH, process.env.LOCALHOST];
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  }
-}
+// const whitelist = [process.env.WEB_BTH, process.env.LOCALHOST];
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (whitelist.indexOf(origin) !== -1) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   }
+// }
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(express.json());
 app.use(routes);
